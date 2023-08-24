@@ -25,6 +25,8 @@ export const signupReq = async ({ name, email, password, cPassword }) => {
     let res = await axios.post(`${apiURL}/api/signup`, data);
     return res.data;
   } catch (error) {
-    console.log(error);
+    console.error("Axios error:", error.response ? error.response.data : error.message);
+    throw error;
   }
 };
+
