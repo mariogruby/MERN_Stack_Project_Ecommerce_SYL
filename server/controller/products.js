@@ -42,17 +42,16 @@ class Product {
   }
 
   async postAddProduct(req, res) {
-    let { pName, pDescription, pPrice, pQuantity, pCategory, pOffer, pStatus } =
-      req.body;
+    let { pName, pDescription, pPrice, pQuantity, pOffer, pStatus } = req.body;
     let images = req.files;
+
     // Validation
     if (
-      !pName |
-      !pDescription |
-      !pPrice |
-      !pQuantity |
-      !pCategory |
-      !pOffer |
+      !pName ||
+      !pDescription ||
+      !pPrice ||
+      !pQuantity ||
+      !pOffer ||
       !pStatus
     ) {
       Product.deleteImages(images, "file");
@@ -81,7 +80,6 @@ class Product {
           pDescription,
           pPrice,
           pQuantity,
-          pCategory,
           pOffer,
           pStatus,
         });
@@ -93,7 +91,8 @@ class Product {
         console.log(err);
       }
     }
-  }
+}
+
 
   async postEditProduct(req, res) {
     let {
