@@ -22,6 +22,7 @@ const ProductDetailsSection = (props) => {
     useContext(LayoutContext); // Layout Context
 
   const sProduct = layoutData.singleProductDetail;
+  console.log("esto es sProduct:", sProduct)
   const [pImages, setPimages] = useState(null);
   const [count, setCount] = useState(0); // Slide change state
 
@@ -92,15 +93,16 @@ const ProductDetailsSection = (props) => {
       </div>
     );
   } else if (!sProduct) {
+    console.log("sProduct es:", sProduct);
     return <div>No product</div>;
   }
   return (
     <Fragment>
       <Submenu
         value={{
-          categoryId: sProduct.pCategory._id,
-          product: sProduct.pName,
-          category: sProduct.pCategory.cName,
+          categoryId: sProduct?.pCategory?._id,
+          product: sProduct?.pName,
+          category: sProduct?.pCategory?.cName,
         }}
       />
       <section className="m-4 md:mx-12 md:my-6">

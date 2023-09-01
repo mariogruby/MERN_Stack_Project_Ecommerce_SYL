@@ -20,7 +20,7 @@ const EditProductModal = (props) => {
     pImages: null,
     pEditImages: null,
     pStatus: "",
-    pCategory: "",
+    // pCategory: "",
     pQuantity: "",
     pPrice: "",
     pOffer: "",
