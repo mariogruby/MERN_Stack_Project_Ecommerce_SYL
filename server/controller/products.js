@@ -51,6 +51,7 @@ class Product {
       !pDescription ||
       !pPrice ||
       !pQuantity ||
+      // !pCategory ||
       !pOffer ||
       !pStatus
     ) {
