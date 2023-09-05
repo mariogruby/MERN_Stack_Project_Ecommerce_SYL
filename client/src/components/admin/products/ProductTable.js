@@ -109,7 +109,7 @@ const AllProduct = (props) => {
                   colSpan="10"
                   className="text-xl text-center font-semibold py-8"
                 >
-                  Nottttttttttttttttttttt product found
+                  No product found
                 </td>
               </tr>
             )}
@@ -155,7 +155,7 @@ const ProductTable = ({ product, deleteProduct, editProduct }) => {
           )}
         </td>
         <td className="p-2 text-center">{product.pQuantity}</td>
-        <td className="p-2 text-center">{product.cName}</td> { /*falta pCategory */}
+        <td className="p-2 text-center">{product.pCategory ? product.pCategory.cName : 'N/A'}</td>
         <td className="p-2 text-center">{product.pOffer}</td>
         <td className="p-2 text-center">
           {moment(product.createdAt).format("lll")}

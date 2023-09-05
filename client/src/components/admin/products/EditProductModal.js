@@ -20,7 +20,7 @@ const EditProductModal = (props) => {
     pImages: null,
     pEditImages: null,
     pStatus: "",
-    // pCategory: "",
+    pCategory: "",
     pQuantity: "",
     pPrice: "",
     pOffer: "",
@@ -82,6 +82,7 @@ const EditProductModal = (props) => {
           });
         }, 2000);
       } else if (responseData.error) {
+        console.log(responseData.error)
         setEditformdata({ ...editformData, error: responseData.error });
         setTimeout(() => {
           return setEditformdata({
