@@ -1,4 +1,6 @@
 const { toTitleCase, validateEmail } = require("../config/function");
+const transporter = require("../config/transporter")
+const template = require("../templates/template.signup")
 const bcrypt = require("bcryptjs");
 const userModel = require("../models/users");
 const jwt = require("jsonwebtoken");
@@ -76,6 +78,15 @@ class Auth {
               newUser
                 .save()
                 .then((data) => {
+                  transporter.sendMail({
+                    from: `"sartorial yugen by luzmila <${process.env.EMAIL_ADDRESS}>"`,
+                    to: email,
+                    subject: "correo de prueba de nodemailer",
+                    text: name,
+                    html: template.templateExample(name)
+                  })
+                  .then((info) => res.render(name, {email, info}))
+                  .catch((error) => console.log(error))
                   return res.json({
                     success: "Account create successfully. Please login",
                   });
