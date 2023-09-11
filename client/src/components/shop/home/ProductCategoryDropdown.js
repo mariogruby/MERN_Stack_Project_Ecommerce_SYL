@@ -43,6 +43,7 @@ const CategoryList = () => {
                 >
                   <img
                     src={`${apiURL}/uploads/categories/${item.cImage}`}
+                    style={{ width: '400px', height: '200px' }}   // especifica el tamaño deseado aquí
                     alt="pic"
                   />
                   <div className="font-medium">{item.cName}</div>

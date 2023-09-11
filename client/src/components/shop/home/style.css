@@ -25,3 +25,17 @@
   background: #b7791f;
   cursor: pointer;
 }
+
+.product-card {
+  border: 1px solid #e0e0e0; 
+  border-radius: 10px; 
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  box-shadow: 0px 6px 12px rgba(0,0,0,0.15);
+  transform: translateY(-3px);
+}
+

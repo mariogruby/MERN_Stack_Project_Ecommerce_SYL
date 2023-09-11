@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { getAllProduct } from "../../admin/products/FetchApi";
 import { HomeContext } from "./index";
 import { isWishReq, unWishReq, isWish } from "./Mixins";
+import "./style.css";
 
 const apiURL = process.env.REACT_APP_API_URL;
 
@@ -62,13 +63,15 @@ const SingleProduct = (props) => {
         products.map((item, index) => {
           return (
             <Fragment key={index}>
-              <div className="relative col-span-1 m-2">
+              <div className="relative col-span-1 m-2 product-card">
                 <img
                   onClick={(e) => history.push(`/products/${item._id}`)}
+                  style={{ width: '400px', height: '200px' }}   // especifica el tamaño deseado aquí
                   className="w-full object-cover object-center cursor-pointer"
                   src={`${apiURL}/uploads/products/${item.pImages[0]}`}
                   alt=""
                 />
+
                 <div className="flex items-center justify-between mt-2">
                   <div className="text-gray-600 font-light truncate">
                     {item.pName}
@@ -100,9 +103,8 @@ const SingleProduct = (props) => {
                 <div className="absolute top-0 right-0 mx-2 my-2 md:mx-4">
                   <svg
                     onClick={(e) => isWishReq(e, item._id, setWlist)}
-                    className={`${
-                      isWish(item._id, wList) && "hidden"
-                    } w-5 h-5 md:w-6 md:h-6 cursor-pointer text-yellow-700 transition-all duration-300 ease-in`}
+                    className={`${isWish(item._id, wList) && "hidden"
+                      } w-5 h-5 md:w-6 md:h-6 cursor-pointer text-yellow-700 transition-all duration-300 ease-in`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -117,9 +119,8 @@ const SingleProduct = (props) => {
                   </svg>
                   <svg
                     onClick={(e) => unWishReq(e, item._id, setWlist)}
-                    className={`${
-                      !isWish(item._id, wList) && "hidden"
-                    } w-5 h-5 md:w-6 md:h-6 cursor-pointer text-yellow-700 transition-all duration-300 ease-in`}
+                    className={`${!isWish(item._id, wList) && "hidden"
+                      } w-5 h-5 md:w-6 md:h-6 cursor-pointer text-yellow-700 transition-all duration-300 ease-in`}
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"

@@ -1,5 +1,6 @@
 import React, { Fragment, useContext } from "react";
 import { useHistory, useLocation } from "react-router-dom";
+// import logowhite from "../partials/logo-syl-enpng.png"
 import "./style.css";
 
 import { logout } from "./Action";
@@ -81,7 +82,8 @@ const Navber = (props) => {
             style={{ letterSpacing: "0.70rem" }}
             className="hidden lg:block flex items-left col-span-1 text-center text-gray-800 font-bold tracking-widest uppercase text-2xl cursor-pointer"
           >
-            SATORIAL YÜGEN 
+            SARTORIAL YÜGEN
+            {/* <img src={logowhite} alt="Logo de SARTORIAL YÜGEN" /> */}
           </div>
           <div className="flex items-right col-span-2 lg:col-span-1 flex justify-end">
             {/*  WishList Page Button */}
@@ -91,11 +93,10 @@ const Navber = (props) => {
               title="Wishlist"
             >
               <svg
-                className={`${
-                  location.pathname === "/wish-list"
+                className={`${location.pathname === "/wish-list"
                     ? "fill-current text-gray-800"
                     : ""
-                } w-8 h-8 text-gray-600 cursor-pointer`}
+                  } w-8 h-8 text-gray-600 cursor-pointer`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"

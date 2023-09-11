@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import Layout from "../layout";
 import { productByCategory } from "../../admin/products/FetchApi";
+import "./style.css";
 
 const apiURL = process.env.REACT_APP_API_URL;
 
@@ -56,9 +57,10 @@ const AllProduct = ({ products }) => {
           products.map((item, index) => {
             return (
               <Fragment key={index}>
-                <div className="relative col-span-1 m-2">
+                <div className="relative col-span-1 m-2 product-card">
                   <img
                     onClick={(e) => history.push(`/products/${item._id}`)}
+                    style={{ width: '400px', height: '200px' }}   // especifica el tamaño deseado aquí
                     className="w-full object-cover object-center cursor-pointer"
                     src={`${apiURL}/uploads/products/${item.pImages[0]}`}
                     alt=""

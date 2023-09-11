@@ -75,6 +75,7 @@ const EditProductModal = (props) => {
       if (responseData.success) {
         fetchData();
         setEditformdata({ ...editformData, success: responseData.success });
+        console.log(editformData)
         setTimeout(() => {
           return setEditformdata({
             ...editformData,
@@ -84,6 +85,7 @@ const EditProductModal = (props) => {
       } else if (responseData.error) {
         console.log(responseData.error)
         setEditformdata({ ...editformData, error: responseData.error });
+        console.log(editformData)
         setTimeout(() => {
           return setEditformdata({
             ...editformData,
