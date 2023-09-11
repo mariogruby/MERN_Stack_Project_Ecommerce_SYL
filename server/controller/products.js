@@ -53,7 +53,7 @@ class Product {
       !pQuantity ||
       !pCategory ||
       !pOffer ||
-      !pStatus
+      !pStatus 
     ) {
       Product.deleteImages(images, "file");
       return res.json({ error: "All filled must be required" });
@@ -112,17 +112,17 @@ class Product {
 
     // Validate other fileds
     if (
-      !pId |
-      !pName |
-      !pDescription |
-      !pPrice |
-      !pQuantity |
-      !pCategory |
-      !pOffer |
+      !pId ||
+      !pName ||
+      !pDescription ||
+      !pPrice ||
+      !pQuantity ||
+      !pCategory ||
+      !pOffer ||
       !pStatus
-    ) {
+  ) {
       return res.json({ error: "All filled must be required" });
-    }
+  }  
     // Validate Name and description
     else if (pName.length > 255 || pDescription.length > 3000) {
       return res.json({
